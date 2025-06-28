@@ -18,7 +18,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { message } from 'ant-design-vue'
-import {uploadPictureByUrlUsingPost, uploadPictureUsingPost} from '@/api/pictureController.ts'
+import { uploadPictureByUrlUsingPost } from '@/api/pictureController.ts'
 
 interface Props {
   picture?: API.PictureVO
@@ -32,13 +32,17 @@ const loading = ref<boolean>(false)
 
 /**
  * 上传图片
+ * @param file
  */
-const handleUpload = async ({ file }: any) => {
+const handleUpload = async () => {
   loading.value = true
   try {
-    const params: API.PictureUploadRequest = props.picture ? { id: props.picture.id } : {}
+    const params: API.PictureUploadRequest = { fileUrl: fileUrl.value }
     params.spaceId = props.spaceId;
-    const res = await uploadPictureUsingPost(params, {}, file)
+    if (props.picture) {
+      params.id = props.picture.id
+    }
+    const res = await uploadPictureByUrlUsingPost(params)
     if (res.data.code === 0 && res.data.data) {
       message.success('图片上传成功')
       // 将上传成功的图片信息传递给父组件
@@ -68,4 +72,3 @@ const handleUpload = async ({ file }: any) => {
   margin-top: 16px;
 }
 </style>
-

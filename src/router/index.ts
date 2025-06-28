@@ -10,6 +10,7 @@ import AddPictureBatchPage from '@/pages/AddPictureBatchPage.vue'
 import AddSpacePage from '@/pages/AddSpacePage.vue'
 import MySpacePage from '@/pages/MySpacePage.vue'
 import SpaceDetailPage from '@/pages/SpaceDetailPage.vue'
+import SearchPicturePage from '@/pages/searchPicturePage.vue'
 import SpaceManagePage from '@/pages/admin/SpaceManagePage.vue'
 
 const router = createRouter({
@@ -49,6 +50,11 @@ const router = createRouter({
       path: '/admin/pictureManage',
       name: '图片管理',
       component: PictureManagePage,
+    },
+    {
+      path: '/search_picture',
+      name: '图片搜索',
+      component: SearchPicturePage,
     },
     {
       path: '/add_space',
