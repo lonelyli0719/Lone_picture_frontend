@@ -11,6 +11,7 @@ import AddSpacePage from '@/pages/AddSpacePage.vue'
 import MySpacePage from '@/pages/MySpacePage.vue'
 import SpaceDetailPage from '@/pages/SpaceDetailPage.vue'
 import SearchPicturePage from '@/pages/searchPicturePage.vue'
+import SpaceAnalyzePage from '@/pages/SpaceAnalyzePage.vue'
 import SpaceManagePage from '@/pages/admin/SpaceManagePage.vue'
 
 const router = createRouter({
@@ -82,6 +83,11 @@ const router = createRouter({
       name: '图片详情',
       component: PictureDetailPage,
       props: true,
+    },
+    {
+      path: '/space_analyze',
+      name: '空间分析',
+      component: SpaceAnalyzePage,
     },
     {
       path: '/about',
